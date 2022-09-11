@@ -23,5 +23,10 @@ public class Macbook {
     @Column(name = "\"Cena Macbooka\"")
     private BigDecimal macbook_price;
 
-
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(column = @Column(name = "\"Procesor\""),name = "macbook_processor"),
+            @AttributeOverride(column = @Column(name = "\"RAM\""),name = "macbook_ram")
+    })
+    private MacbookSpecification macbookSpecification;
 }
