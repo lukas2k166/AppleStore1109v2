@@ -1,9 +1,6 @@
 package com.example.demo.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,11 +11,12 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Table(name = "Produkty")
+//@ToString(exclude = "macbook")
 public class Product {
 
     @Id
     @GeneratedValue
-    @Column(name = "\"ID\"")
+    @Column(name = "\"Product ID\"")
     private Long product_id;
 
     @Column(name = "\"Nazwa\"")
@@ -29,17 +27,9 @@ public class Product {
 
 
     @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            optional = false
-    )
-    @JoinColumn(
-            name = "\"ID\"",
-            referencedColumnName = "macbookId"
+            mappedBy = "product"
     )
     private Macbook macbook;
-
-
 
 
 }

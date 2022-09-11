@@ -10,11 +10,12 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Table(name = "Macbooks")
+@ToString(exclude = "product")
 public class Macbook {
 
     @Id
     @GeneratedValue
-    @Column(name = "\"ID\"")
+    @Column(name = "\"Macbook ID\"")
     private Long macbook_id;
 
     @Column(name = "\"Nazwa\"")
@@ -31,9 +32,17 @@ public class Macbook {
     private MacbookSpecification macbookSpecification;
 
     @OneToOne(
-            targetEntity = Macbook.class
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "product_id",
+            referencedColumnName = "\"Product ID\""
     )
     private Product product;
+
+
 
 
 }
