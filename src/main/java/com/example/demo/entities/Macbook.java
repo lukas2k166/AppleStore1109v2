@@ -29,4 +29,11 @@ public class Macbook {
             @AttributeOverride(column = @Column(name = "\"RAM\""),name = "macbook_ram")
     })
     private MacbookSpecification macbookSpecification;
+
+    @OneToOne(
+            targetEntity = Macbook.class
+    )
+    private Product product;
+
+
 }

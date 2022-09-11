@@ -28,6 +28,16 @@ public class Product {
     private BigDecimal product_price;
 
 
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "\"ID\"",
+            referencedColumnName = "macbookId"
+    )
+    private Macbook macbook;
 
 
 
