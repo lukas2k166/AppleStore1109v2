@@ -14,13 +14,13 @@ public class Macbook {
 
     @Id
     @GeneratedValue
-    @Column(name = "\"ID Macbooka\"")
+    @Column(name = "\"ID\"")
     private Long macbook_id;
 
-    @Column(name = "\"Nazwa Macbooka\"")
+    @Column(name = "\"Nazwa\"")
     private String macbook_name;
 
-    @Column(name = "\"Cena Macbooka\"")
+    @Column(name = "\"Cena\"")
     private BigDecimal macbook_price;
 
     @Embedded
