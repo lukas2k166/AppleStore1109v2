@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+import static com.example.demo.security.ApplicationUserPermission.SEE_PRODUCT;
 import static com.example.demo.security.ApplicationUserRole.ADMIN;
 import static com.example.demo.security.ApplicationUserRole.CLIENT;
 
@@ -35,6 +37,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
+                .antMatchers("/products/get/**").permitAll()
                 .antMatchers("/products/add/**").hasRole(ADMIN.name())
                 .anyRequest()
                 .authenticated()
