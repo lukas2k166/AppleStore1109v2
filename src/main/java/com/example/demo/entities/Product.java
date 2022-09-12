@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +12,6 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Table(name = "Produkty")
-//@ToString(exclude = "macbook")
 public class Product {
 
     @Id
@@ -25,7 +25,7 @@ public class Product {
     @Column(name = "\"Cena\"")
     private BigDecimal product_price;
 
-
+    @JsonIgnore
     @OneToOne(
             mappedBy = "product"
     )
