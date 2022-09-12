@@ -37,7 +37,7 @@ public class Macbook {
             optional = false
     )
     @JoinColumn(
-            name = "product_id",
+            name = "\"Product ID\"",
             referencedColumnName = "\"Product ID\""
     )
     private Product product;
