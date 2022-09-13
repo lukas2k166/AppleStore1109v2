@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.example.demo.security.ApplicationUserRole.ADMIN;
 
 @Configuration
@@ -45,12 +47,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/products/get/all/products", true)
+                .defaultSuccessUrl("/homepage",true)
                 .passwordParameter("password")
                 .usernameParameter("username")
                 .and()
                 .rememberMe()
-                .tokenValiditySeconds(3600)
+                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
                 .key("somethingverysecured")
                 .rememberMeParameter("remember-me")
                 .and()
