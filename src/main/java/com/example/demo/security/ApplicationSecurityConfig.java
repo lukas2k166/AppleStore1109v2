@@ -52,7 +52,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .usernameParameter("username")
                 .and()
                 .rememberMe()
-                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
+                .tokenValiditySeconds(3600)
                 .key("somethingverysecured")
                 .rememberMeParameter("remember-me")
                 .and()
