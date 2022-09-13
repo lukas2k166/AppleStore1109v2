@@ -13,13 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.example.demo.security.ApplicationUserRole.ADMIN;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 
     private final PasswordEncoder passwordEncoder;
@@ -37,7 +36,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","index", "/css/*", "/js/*").permitAll()
+                .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
                 .antMatchers("/products/get/**").permitAll()
                 .antMatchers("/products/add/**").hasRole(ADMIN.name())
                 .anyRequest()
@@ -63,7 +62,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .deleteCookies("JSESSIONID", "remember-me")
                 .logoutSuccessUrl("/login");
     }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
@@ -76,5 +74,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
         provider.setUserDetailsService(applicationUserService);
         return provider;
     }
+
 
 }
