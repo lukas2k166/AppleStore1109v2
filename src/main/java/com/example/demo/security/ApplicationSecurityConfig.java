@@ -45,7 +45,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/loginpage")
                 .permitAll()
                 .defaultSuccessUrl("/homepage",true)
                 .passwordParameter("password")
@@ -62,7 +62,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .clearAuthentication(true)
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID", "remember-me")
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/loginpage");
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
