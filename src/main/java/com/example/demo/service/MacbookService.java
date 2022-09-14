@@ -28,14 +28,20 @@ public class MacbookService {
         macbookSpecification.setMacbook_ram(16);
         macbookSpecification.setMacbook_processor("M1 Pro");
 
-        var macbook = Macbook.builder()
+        var newMacbook = Macbook.builder()
                 .product(product)
                 .macbookSpecification(macbookSpecification)
                 .macbook_price(product.getProduct_price())
                 .macbook_name(product.getProduct_name())
                 .build();
 
-            macbookRepository.save(macbook);
+        if (macbookRepository.findByMacbookName(newMacbook.getMacbook_name())
+                .stream().findFirst().isPresent())
+            throw new RuntimeException(
+                    newMacbook.getMacbook_name() + " already exists"
+            );
+
+            macbookRepository.save(newMacbook);
     }
 
     public List<Macbook> findMacbookByName(){
