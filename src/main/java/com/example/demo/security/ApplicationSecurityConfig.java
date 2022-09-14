@@ -38,7 +38,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
                 .antMatchers("/products/get/**").permitAll()
-                .antMatchers("/products/add/**").hasRole(ADMIN.name())
+                .antMatchers("/macbooks/add/**").hasRole(ADMIN.name())
                 .anyRequest()
                 .authenticated()
                 .and()
