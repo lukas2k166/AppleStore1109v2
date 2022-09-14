@@ -18,6 +18,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/add/new/product")
+//    @GetMapping("/add/new/product")
     public void addNewProduct(){
         productService.addNewProduct();
     }

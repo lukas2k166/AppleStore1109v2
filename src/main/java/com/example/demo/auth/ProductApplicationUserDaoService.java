@@ -33,7 +33,7 @@ public class ProductApplicationUserDaoService implements ApplicationUserDao {
                 new ApplicationUser(
                         "AdminUser",
                         passwordEncoder.encode("password"),
-                        CLIENT.getGrantedAuthorities(),
+                        ADMIN.getGrantedAuthorities(),
                         true,
                         true,
                         true,
@@ -42,16 +42,7 @@ public class ProductApplicationUserDaoService implements ApplicationUserDao {
                 new ApplicationUser(
                         "ClientUser",
                         passwordEncoder.encode("password"),
-                        ADMIN.getGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
-                ),
-                new ApplicationUser(
-                        "tom",
-                        passwordEncoder.encode("password"),
-                        ADMIN.getGrantedAuthorities(),
+                        CLIENT.getGrantedAuthorities(),
                         true,
                         true,
                         true,
