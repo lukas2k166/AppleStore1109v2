@@ -15,7 +15,7 @@ public interface MacbookRepository extends CrudRepository<Macbook,Long> {
             value = "SELECT * FROM macbooks WHERE Nazwa = ?1",
             nativeQuery = true
     )
-    List<Macbook> findMacbookByName(
+    List<Macbook> findByMacbookName(
             @Param("macbookName")String puttedMacbookName
     );
 

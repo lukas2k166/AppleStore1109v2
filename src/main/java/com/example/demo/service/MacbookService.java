@@ -39,7 +39,7 @@ public class MacbookService {
     }
 
     public List<Macbook> findMacbookByName(){
-       return macbookRepository.findMacbookByName(
+       return macbookRepository.findByMacbookName(
                askMacbookName()
        );
     }
