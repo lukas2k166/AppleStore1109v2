@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class MacbookService {
@@ -15,7 +17,7 @@ public class MacbookService {
     @Autowired
     private MacbookRepository macbookRepository;
 
-    public void addNewMacbook(){
+    public void addNewMacbook() {
 
         Product product = Product.builder()
                 .product_name("Macbook Pro")
@@ -33,7 +35,19 @@ public class MacbookService {
                 .macbook_name(product.getProduct_name())
                 .build();
 
-        macbookRepository.save(macbook);
+            macbookRepository.save(macbook);
+    }
+
+    public List<Macbook> findMacbookByName(){
+       return macbookRepository.findMacbookByName(
+               askMacbookName()
+       );
+    }
+
+    private String askMacbookName(){
+        System.out.println("put macbook name");
+        var scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
 }
