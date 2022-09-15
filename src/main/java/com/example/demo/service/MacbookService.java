@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
+import com.example.demo.exception.ApiRequestException;
 import com.example.demo.repository.MacbookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,11 @@ public class MacbookService {
 
         if (macbookRepository.findByMacbookName(newMacbook.getMacbook_name())
                 .stream().findFirst().isPresent())
-            throw new RuntimeException(
+            throw new ApiRequestException(
                     newMacbook.getMacbook_name() + " already exists"
             );
+
+
 
             macbookRepository.save(newMacbook);
     }
@@ -55,5 +58,6 @@ public class MacbookService {
         var scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
 
 }
