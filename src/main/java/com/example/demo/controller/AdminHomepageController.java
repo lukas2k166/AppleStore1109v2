@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminHomepageController {
 
     @GetMapping("administration")
-    public String getUsers(HttpServletRequest request) {
+    public String getAdministration(HttpServletRequest request) {
         if (!request.isUserInRole("ROLE_ADMIN"))
             throw new UnauthorizedException("You don't have permission to access this page");
 

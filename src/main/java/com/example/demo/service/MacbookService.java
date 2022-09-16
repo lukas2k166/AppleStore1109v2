@@ -4,6 +4,7 @@ import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.MacbookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,9 +47,14 @@ public class MacbookService {
     }
 
     public List<Macbook> findMacbookByName(){
+
+        if (macbookRepository.findByMacbookName(askMacbookName()).isEmpty())
+            throw new ResourceNotFoundException("This macbook cannot be found");
+
        return macbookRepository.findByMacbookName(
                askMacbookName()
        );
+
     }
 
     private String askMacbookName(){

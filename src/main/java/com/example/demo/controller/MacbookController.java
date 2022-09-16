@@ -24,7 +24,7 @@ public class MacbookController {
 
     @GetMapping("/find/macbook/by/name")
     public List<Macbook> getMacbookByName(){
-        return macbookService.findMacbookByName();
+         return macbookService.findMacbookByName();
     }
 
 }
