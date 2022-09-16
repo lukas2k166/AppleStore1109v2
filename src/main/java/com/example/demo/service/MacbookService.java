@@ -42,12 +42,6 @@ public class MacbookService {
                     newMacbook.getMacbook_name() + " already exists"
             );
 
-
-
-
-
-
-
         macbookRepository.save(newMacbook);
     }
 
