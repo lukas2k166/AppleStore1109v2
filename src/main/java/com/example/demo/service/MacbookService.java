@@ -48,20 +48,17 @@ public class MacbookService {
 
     public List<Macbook> findMacbookByName(){
 
-        if (macbookRepository.findByMacbookName(askMacbookName()).isEmpty())
+        System.out.println("put macbook name");
+        var putMacbook = new Scanner(System.in);
+        String puttedMacbook = putMacbook.nextLine();
+
+        if (macbookRepository.findByMacbookName(puttedMacbook).isEmpty())
             throw new ResourceNotFoundException("This macbook cannot be found");
 
        return macbookRepository.findByMacbookName(
-               askMacbookName()
+               puttedMacbook
        );
 
     }
-
-    private String askMacbookName(){
-        System.out.println("put macbook name");
-        var scanner = new Scanner(System.in);
-        return scanner.nextLine();
-    }
-
 
 }
