@@ -17,6 +17,12 @@ public class MacbookController {
     @Autowired
     MacbookService macbookService;
 
+    @GetMapping("/get/all/macbooks")
+    public List<Macbook> getAllMacbooks(){
+       return macbookService.getAllMacbooks();
+    }
+
+
     @PostMapping("/add/new/macbook")
     public void addNewProduct(){
         macbookService.addNewMacbook();

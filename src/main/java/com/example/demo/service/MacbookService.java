@@ -19,6 +19,10 @@ public class MacbookService {
     @Autowired
     private MacbookRepository macbookRepository;
 
+    public List<Macbook> getAllMacbooks(){
+       return (List<Macbook>) macbookRepository.findAll();
+    }
+
     public void addNewMacbook() {
 
         var product = Product.builder()
