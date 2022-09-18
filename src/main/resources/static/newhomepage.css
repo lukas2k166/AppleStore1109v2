@@ -46,3 +46,12 @@ color: #fff;
 display: block;
 text-position: center;
 }
+
+.menu-bar ul li:hover .sub-menu-1 ul li{
+    width: 110px;
+    padding: 10px;
+    border-bottom: 1px double #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: center;
+    }
