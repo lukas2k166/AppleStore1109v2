@@ -1,38 +1,38 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Apple Store login</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
-  <style>
-        body {
-            background-color: #3e3e3e;
-            color: white;
-        }
-    </style>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
-<h1>Apple Store Home Page</h1>
-<div class="container">
-  <p>Welcome in Apple Store</p>
+<div class="menu-bar">
+    <ul>
 
-  <form class="form-signin" method="get" action="/homepage/products/productspage">
-    <button class="btn btn-primary btn-block" type="submit">Product</button>
-  </form>
+        <li><a href="/homepage/products/productspage">
+            <i class="fa-solid fa-house-user"></i>
+            Home</a></li>
 
-  <form class="form-signin" method="get" action="/homepage/administration">
-    <button class="btn btn-primary btn-block" type="submit">Administration</button>
-  </form>
+        <li><a href="/homepage/products/productspage">
+            <i class="fa-brands fa-product-hunt"></i>
+            Products</a>
 
-  <form class="form-signin" method="get" action="/logout">
-    <button class="btn btn-primary btn-block" type="submit">Logout</button>
-  </form>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="/homepage/products/macbookspage">Macbooks</a></li>
+                    <li><a href="#">Iphones</a></li>
+                </ul>
+            </div>
+
+        <li><a href="/homepage/administration">
+        <i class="fa-solid fa-user"></i>
+        Admin</a>
 
 
+        <form class="form-signin" method="get" action="/logout">
+            <button class="btn btn-primary btn-block" type="submit">Logout</button>
+        </form>
+
+    </ul>
 </div>
 </body>
 </html>
