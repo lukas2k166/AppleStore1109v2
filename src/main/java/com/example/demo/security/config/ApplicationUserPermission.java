@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.security.config;
 
 public enum ApplicationUserPermission {
 
@@ -14,5 +14,4 @@ public enum ApplicationUserPermission {
     public String getPermission() {
         return permission;
     }
-
 }

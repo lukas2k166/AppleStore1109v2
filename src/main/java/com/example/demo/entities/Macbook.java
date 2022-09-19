@@ -41,9 +41,4 @@ public class Macbook {
             referencedColumnName = "\"Product ID\""
     )
     private Product product;
-
-
-
-
-
 }
