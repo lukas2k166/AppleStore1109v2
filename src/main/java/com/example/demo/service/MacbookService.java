@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.auth.AppUser;
 import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
@@ -20,13 +21,14 @@ public class MacbookService {
     private MacbookRepository macbookRepository;
 
     public List<Macbook> getAllMacbooks(){
+
        return (List<Macbook>) macbookRepository.findAll();
     }
 
     public void addNewMacbook() {
 
         var product = Product.builder()
-                .product_name("Macbook Pro")
+                .product_name("Macbook Pro M3")
                 .product_price(new BigDecimal("12000"))
                 .build();
 

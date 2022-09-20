@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static com.example.demo.auth.AppUserRole.ADMIN;
+import static com.example.demo.auth.AppUserRole.CLIENT;
 
 //import static com.example.demo.auth.ApplicationUserRole.ADMIN;
 
@@ -32,7 +33,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
                 .antMatchers("/products/get/**").permitAll()
-                .antMatchers("/macbooks/add/**").hasRole(ADMIN.name())
+
+
+
+                .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
+                .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
+
+
+
+
                 .antMatchers("macbooks/find/**").permitAll()
                 .anyRequest()
                 .authenticated()
