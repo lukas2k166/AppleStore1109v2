@@ -58,7 +58,7 @@ public class MacbookService {
         String puttedMacbook = putMacbook.nextLine();
 
         if (macbookRepository.findByMacbookName(puttedMacbook).isEmpty())
-            throw new ResourceNotFoundException("This macbook cannot be found");
+            throw new ResourceNotFoundException(puttedMacbook + " cannot be found");
 
        return macbookRepository.findByMacbookName(
                puttedMacbook
