@@ -14,5 +14,10 @@ public class IncorrectCredentialsController {
         return "incorrectcredentialspage";
     }
 
+    @GetMapping("403")
+    public String getAdministration3() {
+        return "403";
+    }
+
 
 }

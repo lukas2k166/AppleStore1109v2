@@ -50,11 +50,20 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/loginpage")
                 .permitAll()
+
+                .and()
+                .exceptionHandling().accessDeniedPage("/403")
+                .and().formLogin()
+
+
+
+
                 .defaultSuccessUrl("/homepage",true)
                 .passwordParameter("password")
                 .usernameParameter("username")
 
                 .failureUrl("/incorrectcredentialspage")
+//                .successForwardUrl("/incorrectcredentialspage")
 
 
 
