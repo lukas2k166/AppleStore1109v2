@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IncorrectCredentialsController {
 
     @GetMapping("incorrect_credentials_page")
-    public String getAdministration2() {
+    public String getIncorrectCredentialsPage() {
         return "incorrect_credentials_page";
     }
 
-    @GetMapping("403")
-    public String getAdministration3() {
-        return "403";
+    @GetMapping("logon_denied_page")
+    public String getLogonDeniedPage() {
+        return "logon_denied_page";
     }
 
 

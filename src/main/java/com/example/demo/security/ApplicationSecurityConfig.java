@@ -43,7 +43,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
 
                 .and()
-                .exceptionHandling().accessDeniedPage("/403")
+                .exceptionHandling().accessDeniedPage("/logon_denied_page")
                 .and().formLogin()
 
                 .defaultSuccessUrl("/homepage",true)
