@@ -24,18 +24,6 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(apiException, notFoundRequest);
     }
 
-    @ExceptionHandler(value = {UnauthorizedException.class})
-    public ResponseEntity<Object> handleUnauthorizedException(UnauthorizedException e){
-
-        HttpStatus forbiddenRequest = FORBIDDEN;
-
-        ApiException apiException = new ApiException(
-                e.getMessage(),
-                forbiddenRequest
-        );
-        return new ResponseEntity<>(apiException, forbiddenRequest);
-    }
-
     @ExceptionHandler(value = {AlreadyExistsException.class})
     public ResponseEntity<Object> handleAlreadyExistsException(AlreadyExistsException e){
 

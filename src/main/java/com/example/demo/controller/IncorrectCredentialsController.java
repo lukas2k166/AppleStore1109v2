@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IncorrectCredentialsController {
 
-
     @GetMapping("incorrectcredentialspage")
     public String getAdministration2() {
         return "incorrectcredentialspage";

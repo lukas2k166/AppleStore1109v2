@@ -12,12 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.servlet.http.HttpServletResponse;
-
 import static com.example.demo.auth.AppUserRole.ADMIN;
-import static com.example.demo.auth.AppUserRole.CLIENT;
-
-//import static com.example.demo.auth.ApplicationUserRole.ADMIN;
 
 @Configuration
 @AllArgsConstructor
@@ -36,12 +31,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
                 .antMatchers("/products/get/**").permitAll()
 
-
-
                 .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
                 .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
-
-
 
                 .antMatchers("macbooks/find/**").permitAll()
                 .anyRequest()
@@ -55,18 +46,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/403")
                 .and().formLogin()
 
-
-
-
                 .defaultSuccessUrl("/homepage",true)
                 .passwordParameter("password")
                 .usernameParameter("username")
 
                 .failureUrl("/incorrectcredentialspage")
-//                .successForwardUrl("/incorrectcredentialspage")
-
-
-
 
                 .and()
                 .rememberMe()
