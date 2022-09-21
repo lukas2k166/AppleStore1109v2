@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.template_controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +12,4 @@ public class LoginPageController {
     public String getLoginPage() {
         return "loginpage";
     }
-
-    @GetMapping("homepage")
-    public String getHomePage(){
-        return "homepage";
-    }
-
-
-
-
 }
