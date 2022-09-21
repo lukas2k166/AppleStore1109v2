@@ -12,6 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.servlet.http.HttpServletResponse;
+
 import static com.example.demo.auth.AppUserRole.ADMIN;
 import static com.example.demo.auth.AppUserRole.CLIENT;
 
@@ -41,7 +43,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-
                 .antMatchers("macbooks/find/**").permitAll()
                 .anyRequest()
                 .authenticated()
@@ -52,6 +53,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/homepage",true)
                 .passwordParameter("password")
                 .usernameParameter("username")
+
+                .failureUrl("/incorrectcredentialspage")
+
+
+
+
                 .and()
                 .rememberMe()
                 .tokenValiditySeconds(3600)

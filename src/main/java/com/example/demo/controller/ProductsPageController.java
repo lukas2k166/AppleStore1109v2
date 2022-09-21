@@ -13,7 +13,7 @@ public class ProductsPageController {
 
 
     @GetMapping("productspage")
-    public String getAdministration(HttpServletRequest request) {
+    public String getAdministration() {
 //        if (!request.isUserInRole("ROLE_ADMIN"))
 //            throw new UnauthorizedException("You don't have permission to access this page");
 
@@ -21,7 +21,7 @@ public class ProductsPageController {
     }
 
     @GetMapping("macbookspage")
-    public String getAdministration2(HttpServletRequest request) {
+    public String getAdministration2() {
 //        if (!request.isUserInRole("ROLE_ADMIN"))
 //            throw new UnauthorizedException("You don't have permission to access this page");
 

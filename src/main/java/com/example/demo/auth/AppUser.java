@@ -1,5 +1,7 @@
 package com.example.demo.auth;
 
+
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,9 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 
 @Getter
 @Setter
@@ -21,7 +20,6 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Entity
 public class AppUser implements UserDetails {
-
 
     @SequenceGenerator(
             name = "student_sequence",
@@ -33,7 +31,6 @@ public class AppUser implements UserDetails {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-
     private Long user_id;
 
     private String username;
@@ -41,11 +38,12 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
 
+    //    private ApplicationUserRole applicationUserRole;
+
     private Boolean locked = false;
     private Boolean enabled = false;
 
-    public AppUser(
-            String username,
+    public AppUser(String username,
                    String password,
                    AppUserRole appUserRole
     )
@@ -53,23 +51,14 @@ public class AppUser implements UserDetails {
         this.username = username;
         this.password = password;
         this.appUserRole = appUserRole;
-
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
         SimpleGrantedAuthority authority =
                 new SimpleGrantedAuthority(appUserRole.name());
         return Collections.singletonList(authority);
-
     }
-//    Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
-//            .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
-//            .collect(Collectors.toSet(Ż));
-//            permissions.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
-//            return permissions;
 
     @Override
     public String getPassword() {
@@ -100,4 +89,5 @@ public class AppUser implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
 }

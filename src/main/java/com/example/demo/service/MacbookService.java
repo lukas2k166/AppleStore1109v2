@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.auth.AppUser;
 import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
