@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IncorrectCredentialsController {
 
-    @GetMapping("incorrectcredentialspage")
+    @GetMapping("incorrect_credentials_page")
     public String getAdministration2() {
-        return "incorrectcredentialspage";
+        return "incorrect_credentials_page";
     }
 
     @GetMapping("403")

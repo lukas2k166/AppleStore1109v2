@@ -50,7 +50,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .usernameParameter("username")
 
-                .failureUrl("/incorrectcredentialspage")
+                .failureUrl("/incorrect_credentials_page")
 
                 .and()
                 .rememberMe()
