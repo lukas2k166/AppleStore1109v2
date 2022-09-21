@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductsPageController {
 
     @GetMapping("productspage")
-    public String getAdministration() {
+    public String getProductsPage() {
         return "productspage";
     }
 
     @GetMapping("macbookspage")
-    public String getAdministration2() {
+    public String getMacbooksPage() {
         return "macbookspage";
     }
 

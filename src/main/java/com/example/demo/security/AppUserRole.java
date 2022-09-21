@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-import com.example.demo.security.ApplicationUserPermission;
 import com.google.common.collect.Sets;
 
 import java.util.Set;

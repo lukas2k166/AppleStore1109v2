@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class IncorrectCredentialsController {
+public class DeniedAccessController {
 
     @GetMapping("incorrect_credentials_page")
     public String getIncorrectCredentialsPage() {

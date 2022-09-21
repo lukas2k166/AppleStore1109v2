@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class TemplateController {
+public class LoginPageController {
 
     @GetMapping("loginpage")
-    public String getLogin() {
+    public String getLoginPage() {
         return "loginpage";
     }
 
