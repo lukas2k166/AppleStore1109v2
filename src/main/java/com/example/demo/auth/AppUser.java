@@ -1,7 +1,6 @@
 package com.example.demo.auth;
 
-
-
+import com.example.demo.security.AppUserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,9 +36,6 @@ public class AppUser implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-
-    //    private ApplicationUserRole applicationUserRole;
-
     private Boolean locked = false;
     private Boolean enabled = false;
 

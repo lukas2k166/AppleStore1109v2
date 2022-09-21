@@ -1,12 +1,12 @@
-package com.example.demo.auth;
+package com.example.demo.security;
 
-import com.example.demo.security.config.ApplicationUserPermission;
+import com.example.demo.security.ApplicationUserPermission;
 import com.google.common.collect.Sets;
 
 import java.util.Set;
 
-import static com.example.demo.security.config.ApplicationUserPermission.ADD_PRODUCT;
-import static com.example.demo.security.config.ApplicationUserPermission.SEE_PRODUCT;
+import static com.example.demo.security.ApplicationUserPermission.ADD_PRODUCT;
+import static com.example.demo.security.ApplicationUserPermission.SEE_PRODUCT;
 
 public enum AppUserRole {
 
