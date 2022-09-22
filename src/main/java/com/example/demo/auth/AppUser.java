@@ -20,16 +20,9 @@ import java.util.Collections;
 @Entity
 public class AppUser implements UserDetails {
 
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
+
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
 
     private String username;
