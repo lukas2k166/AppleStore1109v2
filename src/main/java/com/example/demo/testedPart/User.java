@@ -1,5 +1,7 @@
 package com.example.demo.testedPart;
 
+import lombok.NoArgsConstructor;
+
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
+@NoArgsConstructor
 @Entity
 @Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User {
@@ -38,10 +41,6 @@ public class User {
 
     private Collection<Role> roles;
 
-    public User() {
-
-    }
-
     public User(String username, String password, Collection<Role> roles) {
         super();
         this.username = username;
@@ -54,6 +53,7 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getPassword() {
         return password;
     }
@@ -74,4 +74,6 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
 }
