@@ -1,6 +1,7 @@
 package com.example.demo.security;
 
-import com.example.demo.auth.AppUserService;
+//import com.example.demo.actualClasses.AppUserService;
+import com.example.demo.testedPart.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,14 +13,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static com.example.demo.security.AppUserRole.ADMIN;
+//import static com.example.demo.actualClasses.AppUserRole.ADMIN;
 
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final AppUserService appUserService;
+//    private final AppUserService appUserService;
+    private final UserServiceImpl userServiceimpl;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -30,11 +32,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
 
+                .antMatchers("/registration").permitAll()
 
                 .antMatchers("/products/get/**").permitAll()
 
-                .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
-                .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
+//                .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
+//                .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
 
                 .antMatchers("macbooks/find/**").permitAll()
                 .anyRequest()
@@ -79,7 +82,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder);
-        provider.setUserDetailsService(appUserService);
+        provider.setUserDetailsService(userServiceimpl);
         return provider;
     }
 }
