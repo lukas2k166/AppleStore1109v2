@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import static com.example.demo.actualClasses.AppUserRole.ADMIN;
+
 //import static com.example.demo.actualClasses.AppUserRole.ADMIN;
 
 @Configuration
@@ -36,8 +38,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/products/get/**").permitAll()
 
-//                .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
-//                .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
+                .antMatchers("/homepage/administration/**").hasAuthority(ADMIN.name())
+                .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
 
                 .antMatchers("macbooks/find/**").permitAll()
                 .anyRequest()
