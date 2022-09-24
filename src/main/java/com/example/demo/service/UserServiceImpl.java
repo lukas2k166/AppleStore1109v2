@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.UserRegistrationDto;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
@@ -12,9 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.List;
+import javax.persistence.EntityManager;
+import java.util.*;
 import java.util.stream.Collectors;
+
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,6 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EntityManager entityManager;
 
     public UserServiceImpl(UserRepository userRepository) {
         super();
@@ -52,4 +57,15 @@ public class UserServiceImpl implements UserService {
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+
+    public void deleteByUsername(){
+        System.out.println("put username");
+        var putUsername = new Scanner(System.in);
+        String puttedUsername = putUsername.nextLine();
+
+        userRepository.deleteByUsername(puttedUsername);
+    }
+
+
+
 }
