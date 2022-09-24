@@ -63,6 +63,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .tokenValiditySeconds(3600)
                 .key("somethingverysecured")
+                .userDetailsService(userServiceimpl)
                 .rememberMeParameter("remember-me")
                 .and()
                 .logout()
