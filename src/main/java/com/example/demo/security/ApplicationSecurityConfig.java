@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-//import com.example.demo.actualClasses.AppUserService;
 import com.example.demo.testedPart.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,14 +14,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static com.example.demo.actualClasses.AppUserRole.ADMIN;
 
-//import static com.example.demo.actualClasses.AppUserRole.ADMIN;
-
 @Configuration
 @AllArgsConstructor
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    private final AppUserService appUserService;
     private final UserServiceImpl userServiceimpl;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 

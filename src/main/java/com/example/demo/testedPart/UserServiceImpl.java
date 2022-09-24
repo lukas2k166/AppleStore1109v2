@@ -1,6 +1,5 @@
 package com.example.demo.testedPart;
 
-import com.example.demo.actualClasses.AppUserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,13 +29,7 @@ public class UserServiceImpl implements UserService {
     public User save(UserRegistrationDto registrationDto) {
         User user = new User(registrationDto.getUsername(),
                 passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(
-//                        new Role(AppUserRole.ADMIN.name())
-//                        new Role("ROLE_USER")
-//                new Role(registrationDto.getRoles())
-//                new Role("ROLE_" + registrationDto.getRoles())
                 new Role(registrationDto.getRoles())
-
-
         ));
 
         return userRepository.save(user);
