@@ -5,20 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/homepage/")
+@RequestMapping("/homepage/administration")
 public class AdministrationController {
 
-    @GetMapping("administration")
+    @GetMapping("")
     public String getAdministration() {
         return "administration";
     }
 
-    @GetMapping("administration/users_administration")
+    @GetMapping("/users_administration")
     public String getUsersAdministration() {
         return "users_administration";
     }
 
-    @GetMapping("administration/products_administration")
+    @GetMapping("/products_administration")
     public String getProductsAdministration() {
         return "products_administration";
     }
