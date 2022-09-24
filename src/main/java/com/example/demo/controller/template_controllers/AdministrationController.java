@@ -13,6 +13,16 @@ public class AdministrationController {
         return "administration";
     }
 
+    @GetMapping("administration/users_administration")
+    public String getUsersAdministration() {
+        return "users_administration";
+    }
+
+    @GetMapping("administration/products_administration")
+    public String getProductsAdministration() {
+        return "products_administration";
+    }
+
 
 
 
