@@ -13,8 +13,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
@@ -25,9 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
-    @Autowired
-    private EntityManager entityManager;
 
     public UserServiceImpl(UserRepository userRepository) {
         super();
@@ -47,11 +46,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUsername(username);
-        if(user == null) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if(user.isEmpty()) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.get().getUsername(), user.get().getPassword(), mapRolesToAuthorities(user.get().getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
@@ -62,6 +61,9 @@ public class UserServiceImpl implements UserService {
         System.out.println("put username");
         var putUsername = new Scanner(System.in);
         String puttedUsername = putUsername.nextLine();
+
+        if (userRepository.findByUsername(puttedUsername).isEmpty())
+            throw new ResourceNotFoundException(puttedUsername + " does not exist");
 
         userRepository.deleteByUsername(puttedUsername);
     }
