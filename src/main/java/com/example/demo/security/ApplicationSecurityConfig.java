@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import com.example.demo.testedPart.UserServiceImpl;
+import com.example.demo.service.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static com.example.demo.actualClasses.AppUserRole.ADMIN;
+import static com.example.demo.authorization.AppUserRole.ADMIN;
 
 @Configuration
 @AllArgsConstructor

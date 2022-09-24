@@ -1,6 +1,8 @@
-package com.example.demo.testedPart;
+package com.example.demo.service;
 
 
+import com.example.demo.dto.UserRegistrationDto;
+import com.example.demo.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 

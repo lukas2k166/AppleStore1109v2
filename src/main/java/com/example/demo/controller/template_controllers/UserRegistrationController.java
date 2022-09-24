@@ -1,5 +1,7 @@
-package com.example.demo.testedPart;
+package com.example.demo.controller.template_controllers;
 
+import com.example.demo.dto.UserRegistrationDto;
+import com.example.demo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
