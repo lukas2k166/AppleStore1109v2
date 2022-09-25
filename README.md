@@ -16,6 +16,9 @@ Maven
 **Frontend:**
 Html + css
 
+**Database:**
+MySQL
+
 **Features:**
 - Login Page
 - Ability to login and logout
