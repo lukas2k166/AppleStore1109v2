@@ -67,7 +67,4 @@ public class UserServiceImpl implements UserService {
 
         userRepository.deleteByUsername(puttedUsername);
     }
-
-
-
 }

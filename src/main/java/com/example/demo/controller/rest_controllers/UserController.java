@@ -3,9 +3,7 @@ package com.example.demo.controller.rest_controllers;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/homepage/administration/users_administration/")
@@ -22,9 +20,4 @@ public class UserController {
     public void deleteUser(){
         userService.deleteByUsername();
     }
-
-
-
-
-
 }

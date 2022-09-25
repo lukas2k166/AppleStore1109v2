@@ -10,30 +10,18 @@
 </head>
 <body>
 
-<!-- create navigation bar ( header) -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span
-                    class="icon-bar"></span> <span class="icon-bar"></span> <span
-                    class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Registration to Apple Store</a>
-        </div>
-    </div>
-</nav>
-
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: white;
+        }
+    </style>
 <br>
 <br>
-<!-- Create HTML registration form -->
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 
-            <!-- success message -->
             <div th:if="${param.success}">
                 <div class="alert alert-info">You've successfully registered
                     to our awesome app!</div>
@@ -63,7 +51,7 @@
 
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Register</button>
+                    <button style="background-color: #00c9b7;" type="submit" class="btn btn-success" >Register</button>
                     <span>Already registered? <a href="/" th:href="@{/login}">Login
 								here</a></span>
                 </div>
