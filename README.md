@@ -2,22 +2,22 @@
                 Technologies:
 
 **Backend:**
-Java 11
-Spring boot
+- Java 11
+- Spring boot
 
 **Dependencies:**
-Spring Data JPA
-Thymeleaf
-Spring security
-Spring web
-Lombok
-Maven
+- Spring Data JPA
+- Thymeleaf
+- Spring security
+- Spring web
+- Lombok
+- Maven
 
 **Frontend:**
-Html + css
+- Html + css
 
 **Database:**
-MySQL
+- MySQL
 
 **Features:**
 - Login Page
