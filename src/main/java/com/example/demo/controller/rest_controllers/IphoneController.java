@@ -1,6 +1,7 @@
 package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.entities.Iphone;
+import com.example.demo.entities.Macbook;
 import com.example.demo.service.IphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,14 @@ public class IphoneController {
     }
 
 
+
+
+
+
+    @GetMapping("/find/iphone/by/name")
+    public List<Iphone> getIphoneByName(){
+        return iphoneService.findIphoneByName();
+    }
 
 
 }
