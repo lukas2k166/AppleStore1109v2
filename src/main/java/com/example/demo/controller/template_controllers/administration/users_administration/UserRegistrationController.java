@@ -1,4 +1,4 @@
-package com.example.demo.controller.template_controllers;
+package com.example.demo.controller.template_controllers.administration.users_administration;
 
 import com.example.demo.dto.UserRegistrationDto;
 import com.example.demo.service.UserService;
