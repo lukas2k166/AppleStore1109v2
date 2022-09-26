@@ -13,10 +13,5 @@ public class ProductsPageController {
         return "productspage";
     }
 
-    @GetMapping("macbookspage")
-    public String getMacbooksPage() {
-        return "macbookspage";
-    }
-
 
 }
