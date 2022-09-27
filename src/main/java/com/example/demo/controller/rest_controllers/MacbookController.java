@@ -24,7 +24,7 @@ public class MacbookController {
 
 
     @PostMapping("/add/new/macbook")
-    public void addNewProduct(){
+    public void addNewMacbook(){
         macbookService.addNewMacbook();
     }
 
