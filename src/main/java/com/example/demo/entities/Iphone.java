@@ -31,8 +31,8 @@ public class Iphone {
             optional = false
     )
     @JoinColumn(
-            name = "\"Iphone ID\"",
-            referencedColumnName = "\"Iphone ID\""
+            name = "\"Product ID\"",
+            referencedColumnName = "\"Product ID\""
     )
     private Product product;
 

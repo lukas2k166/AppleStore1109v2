@@ -25,11 +25,17 @@ public class Product {
     @Column(name = "\"Cena\"")
     private BigDecimal product_price;
 
+//    @JsonIgnore
+//    @OneToOne(
+//            mappedBy = "product"
+//    )
+//    private Macbook macbook;
+
     @JsonIgnore
     @OneToOne(
             mappedBy = "product"
     )
-    private Macbook macbook;
+    private Iphone iphone;
 
 
 }
