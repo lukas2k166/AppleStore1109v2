@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,11 +26,11 @@ public class Product {
     @Column(name = "\"Cena\"")
     private BigDecimal product_price;
 
-//    @JsonIgnore
-//    @OneToOne(
-//            mappedBy = "product"
-//    )
-//    private Macbook macbook;
+    @JsonIgnore
+    @OneToOne(
+            mappedBy = "product"
+    )
+    private Macbook macbook;
 
     @JsonIgnore
     @OneToOne(
