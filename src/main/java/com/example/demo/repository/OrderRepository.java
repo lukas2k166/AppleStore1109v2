@@ -1,4 +1,4 @@
-package com.example.demo.testedPart;
+package com.example.demo.repository;
 
 import com.example.demo.entities.Order;
 import org.springframework.data.repository.CrudRepository;

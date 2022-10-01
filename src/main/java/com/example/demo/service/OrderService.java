@@ -1,7 +1,8 @@
-package com.example.demo.testedPart;
+package com.example.demo.service;
 
 import com.example.demo.entities.*;
 import com.example.demo.repository.MacbookRepository;
+import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

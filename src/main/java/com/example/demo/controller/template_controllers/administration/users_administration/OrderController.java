@@ -1,12 +1,13 @@
-package com.example.demo.testedPart;
+package com.example.demo.controller.template_controllers.administration.users_administration;
 
+import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/order/")
+@RequestMapping("/orders/")
 public class OrderController {
 
     @Autowired
