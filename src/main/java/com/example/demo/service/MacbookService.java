@@ -73,7 +73,8 @@ public class MacbookService {
         macbookRepository.updateMacbook(
                 puttedId,
                 "Macbook Name Modified",
-                new BigDecimal("1000000")
+                new BigDecimal("1000000"),
+                new MacbookSpecification("M1 Max",64)
         );
     }
 
