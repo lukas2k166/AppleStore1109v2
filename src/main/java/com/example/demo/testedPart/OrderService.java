@@ -1,8 +1,8 @@
 package com.example.demo.testedPart;
 
-import com.example.demo.entities.Cart;
-import com.example.demo.entities.Order;
-import com.example.demo.entities.Product;
+import com.example.demo.entities.*;
+import com.example.demo.repository.MacbookRepository;
+import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +14,32 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private MacbookRepository macbookRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
     public void addOrder(){
 
-        Product product = Product.builder()
-                .product_price(new BigDecimal("10000"))
-                .product_name("Macbook")
+        var product = Product.builder()
+                .product_name("Macbook Pro M1")
+                .product_price(new BigDecimal("15000"))
                 .build();
+
+        var macbookSpecification = new MacbookSpecification();
+        macbookSpecification.setMacbook_ram(32);
+        macbookSpecification.setMacbook_processor("M1 Pro");
+
+        var newMacbook = Macbook.builder()
+                .product(product)
+                .macbookSpecification(macbookSpecification)
+                .macbook_price(product.getProduct_price())
+                .macbook_name(product.getProduct_name())
+                .product(product)
+                .build();
+
+        macbookRepository.save(newMacbook);
 
         Cart cart = Cart.builder()
                 .product(product)
