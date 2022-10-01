@@ -3,10 +3,7 @@ package com.example.demo.controller.rest_controllers;
 import com.example.demo.entities.Macbook;
 import com.example.demo.service.MacbookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,13 @@ public class MacbookController {
     public List<Macbook> getMacbookByName(){
          return macbookService.findMacbookByName();
     }
+
+    @RequestMapping(value = "/delete",
+            method={RequestMethod.DELETE, RequestMethod.GET})
+    public void deleteMacbook() {
+        macbookService.deleteMacbook();
+    }
+
+
 
 }

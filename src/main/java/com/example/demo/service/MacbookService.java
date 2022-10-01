@@ -63,7 +63,17 @@ public class MacbookService {
        return macbookRepository.findByMacbookName(
                puttedMacbook
        );
-
     }
+
+    public void deleteMacbook(){
+
+        System.out.println("put macbook ID that you want to delete");
+        var putId = new Scanner(System.in);
+        Long puttedId = putId.nextLong();
+
+        macbookRepository.deleteById(puttedId);
+    }
+
+
 
 }
