@@ -65,6 +65,18 @@ public class MacbookService {
        );
     }
 
+    public void updateMacbook(){
+        System.out.println("put macbook ID that you want to modify");
+        var putId = new Scanner(System.in);
+        Long puttedId = putId.nextLong();
+
+        macbookRepository.updateMacbook(
+                puttedId,
+                "Macbook Name Modified",
+                new BigDecimal("1000000")
+        );
+    }
+
     public void deleteMacbook(){
 
         System.out.println("put macbook ID that you want to delete");
@@ -73,7 +85,5 @@ public class MacbookService {
 
         macbookRepository.deleteById(puttedId);
     }
-
-
 
 }

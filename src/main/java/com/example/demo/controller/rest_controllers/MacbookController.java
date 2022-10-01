@@ -30,12 +30,15 @@ public class MacbookController {
          return macbookService.findMacbookByName();
     }
 
+    @PostMapping("/update")
+    public void updateMacbookProperties(){
+        macbookService.updateMacbook();
+    }
+
     @RequestMapping(value = "/delete",
             method={RequestMethod.DELETE, RequestMethod.GET})
     public void deleteMacbook() {
         macbookService.deleteMacbook();
     }
-
-
 
 }
