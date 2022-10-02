@@ -33,7 +33,6 @@ class MacbookServiceTest {
 		underTest.getAllMacbooks();
 
 		verify(macbookRepository).findAll();
-
 	}
 
 

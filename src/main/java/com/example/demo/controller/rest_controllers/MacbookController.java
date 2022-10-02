@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/macbooks")
@@ -27,7 +28,7 @@ public class MacbookController {
     }
 
     @GetMapping("/find/macbook/by/name")
-    public List<Macbook> getMacbookByName(){
+    public Optional<Macbook> getMacbookByName(){
          return macbookService.findMacbookByName();
     }
 

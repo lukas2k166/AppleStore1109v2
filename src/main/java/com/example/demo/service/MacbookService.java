@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Service
@@ -55,7 +56,7 @@ public class MacbookService {
         macbookRepository.save(newMacbook);
     }
 
-    public List<Macbook> findMacbookByName(){
+    public Optional<Macbook> findMacbookByName(){
 
         System.out.println("put macbook name");
         var putMacbook = new Scanner(System.in);

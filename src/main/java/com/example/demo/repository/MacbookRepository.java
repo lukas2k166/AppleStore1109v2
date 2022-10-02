@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MacbookRepository extends CrudRepository<Macbook,Long> {
@@ -19,7 +19,7 @@ public interface MacbookRepository extends CrudRepository<Macbook,Long> {
             value = "SELECT * FROM macbooks WHERE Nazwa = ?1",
             nativeQuery = true
     )
-    List<Macbook> findByMacbookName(
+    Optional<Macbook> findByMacbookName(
             @Param("macbookName")String puttedMacbookName
     );
 
@@ -38,5 +38,11 @@ public interface MacbookRepository extends CrudRepository<Macbook,Long> {
             BigDecimal macbook_price,
             MacbookSpecification macbookSpecification
     );
+
+
+
+
+
+
 
 }
