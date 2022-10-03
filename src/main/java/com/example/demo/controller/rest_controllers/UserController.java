@@ -5,6 +5,8 @@ import com.example.demo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/homepage/administration/users_administration/")
 public class UserController {
@@ -19,5 +21,11 @@ public class UserController {
             method={RequestMethod.DELETE, RequestMethod.GET})
     public void deleteUser(){
         userService.deleteByUsername();
+    }
+
+    @RequestMapping("my/username")
+    public String  welcomeUser(Principal principal) {
+        String loggedUserName = principal.getName();
+        return "Hello " + loggedUserName;
     }
 }
