@@ -21,6 +21,10 @@ public class OrderService {
     @Autowired
     private ProductRepository productRepository;
 
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     public void addOrder(){
 
         var product = Product.builder()
@@ -51,8 +55,10 @@ public class OrderService {
                 .build();
 
         orderRepository.save(order);
+    }
 
-
+    public void deleteById(long order_id) {
+        this.orderRepository.deleteById(order_id);
     }
 
 
