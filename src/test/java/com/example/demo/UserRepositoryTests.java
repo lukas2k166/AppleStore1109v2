@@ -12,8 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -42,7 +41,7 @@ class UserRepositoryTests {
 	}
 
 	@Test
-	public void shouldFindUserByUsername() {
+	void shouldFindUserByUsername() {
 		User user = new User();
 		user.setUsername("AdminUser");
 
@@ -50,7 +49,20 @@ class UserRepositoryTests {
 				.isEqualTo(user.getUsername());
 	}
 
+	@Test
+	void shouldDeleteUserByUsername() {
 
+		User newUser = new User();
+		newUser.setUsername(String.valueOf(UUID.randomUUID()));
+		newUser.setId(new Random().nextLong());
+		underTest.save(newUser);
+
+		User createdUser  = entityManager.find(User.class,newUser.getId());
+
+		underTest.deleteByUsername(newUser.getUsername());
+
+		assertThat(createdUser).isNull();
+	}
 
 
 
