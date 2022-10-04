@@ -1,8 +1,10 @@
 package com.example.demo.controller.rest_controllers;
 
+import com.example.demo.entities.Macbook;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
