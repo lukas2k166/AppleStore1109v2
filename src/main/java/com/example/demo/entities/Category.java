@@ -2,10 +2,11 @@ package com.example.demo.entities;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -27,11 +28,10 @@ public class Category {
         this.category_name = category_name;
     }
 
-    @JsonIgnore
-    @OneToOne(
-            mappedBy = "category"
+     @OneToMany(
+            cascade = CascadeType.ALL
     )
-    private Product product;
+    private List<Product> productList;
 
 
 }

@@ -5,6 +5,7 @@ import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.IphoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,8 @@ public class IphoneService {
     private IphoneRepository iphoneRepository;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public List<Iphone> getAllIphones(){
 

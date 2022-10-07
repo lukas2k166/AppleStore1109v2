@@ -6,6 +6,7 @@ import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import java.util.Optional;
 import java.util.Scanner;
 
 import static com.example.demo.service.Categories.LAPTOP;
-import static com.example.demo.service.Categories.PHONE;
 
 @Service
 public class MacbookService {
@@ -30,6 +30,9 @@ public class MacbookService {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public MacbookService(MacbookRepository macbookRepository) {
         this.macbookRepository = macbookRepository;

@@ -33,10 +33,8 @@ public class Product {
     @Column(name = "\"Cena\"")
     private BigDecimal product_price;
 
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            optional = false
+    @ManyToOne(
+            cascade = CascadeType.ALL
     )
     @JoinColumn(
             name = "\"Kategoria\"",
