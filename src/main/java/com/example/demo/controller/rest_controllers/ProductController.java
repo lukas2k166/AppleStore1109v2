@@ -22,8 +22,8 @@ public class ProductController {
        return productService.getAllProducts();
     }
 
-    @GetMapping("/add/category/{name}")
-    public void addCategory(@PathVariable(value = "name") String name){
-        productService.addCategory(name);
+    @GetMapping("/add/category/{categoryName}")
+    public void addNewCategory(@PathVariable(value = "categoryName") String categoryName){
+        productService.addNewCategory(categoryName);
     }
 }

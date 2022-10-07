@@ -23,9 +23,9 @@ public class ProductService {
     public List<Product> getAllProducts(){
         return productRepository.findAll();
     }
-    public void addCategory(String name){
-        Category category = new Category();
-        category.setName(name);
-        categoryRepository.save(category);
+    public void addNewCategory(String categoryName){
+        Category newCategory = new Category();
+        newCategory.setCategory_name(categoryName);
+        categoryRepository.save(newCategory);
     }
 }

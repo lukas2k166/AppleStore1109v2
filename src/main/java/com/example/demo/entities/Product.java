@@ -40,7 +40,7 @@ public class Product {
     )
     @JoinColumn(
             name = "\"Kategoria\"",
-            referencedColumnName = "name"
+            referencedColumnName = "category_name"
     )
     private Category category;
 

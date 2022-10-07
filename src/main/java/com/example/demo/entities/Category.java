@@ -17,14 +17,14 @@ public class Category {
     private Long id;
 
     @NotNull
-    private String name;
+    private String category_name;
 
     public Category() {
 
     }
-    public Category(String name) {
+    public Category(String category_name) {
         super();
-        this.name = name;
+        this.category_name = category_name;
     }
 
     @JsonIgnore
