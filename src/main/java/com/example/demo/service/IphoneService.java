@@ -17,6 +17,8 @@ public class IphoneService {
 
     @Autowired
     private IphoneRepository iphoneRepository;
+    @Autowired
+    private ProductService productService;
 
     public List<Iphone> getAllIphones(){
 

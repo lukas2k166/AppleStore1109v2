@@ -33,6 +33,17 @@ public class Product {
     @Column(name = "\"Cena\"")
     private BigDecimal product_price;
 
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "\"Kategoria\"",
+            referencedColumnName = "name"
+    )
+    private Category category;
+
     @JsonIgnore
     @OneToOne(
             mappedBy = "product"
@@ -44,6 +55,8 @@ public class Product {
             mappedBy = "product"
     )
     private Iphone iphone;
+
+
 
 
 }

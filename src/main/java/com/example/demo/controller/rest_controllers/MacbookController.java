@@ -3,6 +3,8 @@ package com.example.demo.controller.rest_controllers;
 import com.example.demo.entities.Macbook;
 import com.example.demo.service.MacbookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +22,6 @@ public class MacbookController {
     public List<Macbook> getAllMacbooks(){
        return macbookService.getAllMacbooks();
     }
-
 
     @PostMapping("/add/new/macbook")
     public void addNewMacbook(){
