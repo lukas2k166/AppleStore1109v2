@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entities.Category;
 import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
+
+import static com.example.demo.service.Categories.PHONE;
 
 @Service
 public class IphoneService {
@@ -29,6 +32,7 @@ public class IphoneService {
 
         var product = Product.builder()
                 .product_name("Iphone 13")
+                .category(new Category(String.valueOf(PHONE)))
                 .product_price(new BigDecimal("4000"))
                 .build();
 
