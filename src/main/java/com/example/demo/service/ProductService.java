@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.MacbookRepository;
@@ -21,5 +22,10 @@ public class ProductService {
 
     public List<Product> getAllProducts(){
         return productRepository.findAll();
+    }
+    public void addCategory(String name){
+        Category category = new Category();
+        category.setName(name);
+        categoryRepository.save(category);
     }
 }
