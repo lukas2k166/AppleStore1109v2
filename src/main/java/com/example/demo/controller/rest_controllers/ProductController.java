@@ -4,7 +4,6 @@ import com.example.demo.entities.Product;
 import com.example.demo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +21,4 @@ public class ProductController {
        return productService.getAllProducts();
     }
 
-    @GetMapping("/add/category/{categoryName}")
-    public void addNewCategory(@PathVariable(value = "categoryName") String categoryName){
-        productService.addNewCategory(categoryName);
-    }
 }
