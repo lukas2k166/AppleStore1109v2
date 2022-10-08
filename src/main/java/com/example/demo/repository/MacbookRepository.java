@@ -5,23 +5,13 @@ import com.example.demo.entities.MacbookSpecification;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @Repository
 public interface MacbookRepository extends CrudRepository<Macbook,Long> {
-
-    @Query(
-            value = "SELECT * FROM macbooks WHERE Nazwa = ?1",
-            nativeQuery = true
-    )
-    Optional<Macbook> findByMacbookName(
-            @Param("macbookName")String puttedMacbookName
-    );
 
     @Modifying
     @Transactional

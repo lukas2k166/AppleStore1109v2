@@ -62,23 +62,13 @@ public class MacbookService {
                 .macbook_name(product.getProduct_name())
                 .build();
 
-        if (macbookRepository.findByMacbookName(newMacbook.getMacbook_name())
+        if (productRepository.findByProductName(newMacbook.getMacbook_name())
                 .stream().findFirst().isPresent())
             throw new AlreadyExistsException(
                     newMacbook.getMacbook_name() + " already exists"
             );
 
         macbookRepository.save(newMacbook);
-    }
-
-    public Optional<Macbook> findMacbookByName(String macbook_name){
-
-        if (macbookRepository.findByMacbookName(macbook_name).isEmpty())
-            throw new ResourceNotFoundException(macbook_name + " cannot be found");
-
-       return macbookRepository.findByMacbookName(
-               macbook_name
-       );
     }
 
     public void updateMacbook(){

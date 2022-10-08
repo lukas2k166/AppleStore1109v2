@@ -25,11 +25,7 @@ public class IphoneController {
         iphoneService.addNewIphone();
     }
 
-    @GetMapping("/find/iphone/by/name/{iphone_name}")
-    public List<Iphone> getIphoneByName(
-            @PathVariable(value = "iphone_name") String iphone_name) {
-        return iphoneService.findIphoneByName(iphone_name);
-    }
+
 
 
 }

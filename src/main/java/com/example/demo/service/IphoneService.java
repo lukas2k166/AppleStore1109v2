@@ -7,6 +7,7 @@ import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.IphoneRepository;
+import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class IphoneService {
 
     @Autowired
     private IphoneRepository iphoneRepository;
+    @Autowired
+    private ProductRepository productRepository;
+
     @Autowired
     private ProductService productService;
     @Autowired
@@ -44,7 +48,7 @@ public class IphoneService {
                 .iphone_name(product.getProduct_name())
                 .build();
 
-        if (iphoneRepository.findByIphoneName(newIphone.getIphone_name())
+        if (productRepository.findByProductName(newIphone.getIphone_name())
                 .stream().findFirst().isPresent())
             throw new AlreadyExistsException(
                     newIphone.getIphone_name() + " already exists"
@@ -53,16 +57,7 @@ public class IphoneService {
         iphoneRepository.save(newIphone);
     }
 
-    public List<Iphone> findIphoneByName(String iphone_name){
 
-        if (iphoneRepository.findByIphoneName(iphone_name).isEmpty())
-            throw new ResourceNotFoundException(iphone_name + " cannot be found");
-
-        return iphoneRepository.findByIphoneName(
-                iphone_name
-        );
-
-    }
 
 
 
