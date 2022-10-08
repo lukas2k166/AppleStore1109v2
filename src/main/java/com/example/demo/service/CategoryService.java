@@ -14,10 +14,29 @@ public class CategoryService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ProductService productService;
+
+    public CategoryService(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
     public void addNewCategory(String categoryName){
         Category newCategory = new Category();
         newCategory.setCategory_name(categoryName);
         categoryRepository.save(newCategory);
     }
+
+    public void editCategory(Long id, String categoryName){
+
+        categoryRepository.editCategory(id, categoryName);
+
+
+
+    }
+
+
+
+
 
 }

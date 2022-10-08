@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.repository_test;
 
 import org.assertj.core.api.Assertions;
 import com.example.demo.entities.Macbook;

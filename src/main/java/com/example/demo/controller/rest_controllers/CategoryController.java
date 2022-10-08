@@ -15,4 +15,19 @@ public class CategoryController {
     public void addNewCategory(@PathVariable(value = "categoryName") String categoryName){
         categoryService.addNewCategory(categoryName);
     }
+
+    @GetMapping("lol")
+    public void editCategory(
+    @PathVariable(value = "id") Long id,
+         @PathVariable(value = "categoryName") String categoryName
+    ){
+
+        categoryService.editCategory(id, categoryName);
+
+    }
+
+
+
+
+
 }

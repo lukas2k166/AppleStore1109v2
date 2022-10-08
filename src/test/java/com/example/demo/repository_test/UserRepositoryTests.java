@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.repository_test;
 
 import com.example.demo.model.Role;
 import com.example.demo.model.User;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.service_test;
 
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.service.MacbookService;
