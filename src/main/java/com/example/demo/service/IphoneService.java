@@ -54,17 +54,13 @@ public class IphoneService {
         iphoneRepository.save(newIphone);
     }
 
-    public List<Iphone> findIphoneByName(){
+    public List<Iphone> findIphoneByName(String iphone_name){
 
-        System.out.println("put iphone name");
-        var putIphone = new Scanner(System.in);
-        String puttedIphone = putIphone.nextLine();
-
-        if (iphoneRepository.findByIphoneName(puttedIphone).isEmpty())
-            throw new ResourceNotFoundException(puttedIphone + " cannot be found");
+        if (iphoneRepository.findByIphoneName(iphone_name).isEmpty())
+            throw new ResourceNotFoundException(iphone_name + " cannot be found");
 
         return iphoneRepository.findByIphoneName(
-                puttedIphone
+                iphone_name
         );
 
     }

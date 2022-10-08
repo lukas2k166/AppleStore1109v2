@@ -4,10 +4,7 @@ import com.example.demo.entities.Iphone;
 import com.example.demo.service.IphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,9 +25,10 @@ public class IphoneController {
         iphoneService.addNewIphone();
     }
 
-    @GetMapping("/find/iphone/by/name")
-    public List<Iphone> getIphoneByName(){
-        return iphoneService.findIphoneByName();
+    @GetMapping("/find/iphone/by/name/{iphone_name}")
+    public List<Iphone> getIphoneByName(
+            @PathVariable(value = "iphone_name") String iphone_name) {
+        return iphoneService.findIphoneByName(iphone_name);
     }
 
 
