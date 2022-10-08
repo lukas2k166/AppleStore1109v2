@@ -28,9 +28,10 @@ public class MacbookController {
         macbookService.addNewMacbook();
     }
 
-    @GetMapping("/find/macbook/by/name")
-    public Optional<Macbook> getMacbookByName(){
-         return macbookService.findMacbookByName();
+    @GetMapping("/find/macbook/by/name/{macbook_name}")
+    public Optional<Macbook> getMacbookByName(
+            @PathVariable(value = "macbook_name") String macbook_name) {
+         return macbookService.findMacbookByName(macbook_name);
     }
 
     @PostMapping("/update")

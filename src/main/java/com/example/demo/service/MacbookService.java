@@ -71,17 +71,13 @@ public class MacbookService {
         macbookRepository.save(newMacbook);
     }
 
-    public Optional<Macbook> findMacbookByName(){
+    public Optional<Macbook> findMacbookByName(String macbook_name){
 
-        System.out.println("put macbook name");
-        var putMacbook = new Scanner(System.in);
-        String puttedMacbook = putMacbook.nextLine();
-
-        if (macbookRepository.findByMacbookName(puttedMacbook).isEmpty())
-            throw new ResourceNotFoundException(puttedMacbook + " cannot be found");
+        if (macbookRepository.findByMacbookName(macbook_name).isEmpty())
+            throw new ResourceNotFoundException(macbook_name + " cannot be found");
 
        return macbookRepository.findByMacbookName(
-               puttedMacbook
+               macbook_name
        );
     }
 
