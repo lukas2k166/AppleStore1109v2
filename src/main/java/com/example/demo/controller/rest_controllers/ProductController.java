@@ -1,5 +1,6 @@
 package com.example.demo.controller.rest_controllers;
 
+import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.ProductService;
@@ -32,5 +33,12 @@ public class ProductController {
 
         return productService.getProductsByCategory(categoryName);
     }
+
+    @GetMapping("/find/product/by/name/{product_name}")
+    public List<Product> getProductByName(
+            @PathVariable(value = "product_name") String product_name) {
+        return productService.findProductByName(product_name);
+    }
+
 
 }
