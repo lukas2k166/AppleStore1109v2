@@ -1,5 +1,6 @@
 package com.example.demo.repository_test;
 
+import com.example.demo.entities.Category;
 import org.assertj.core.api.Assertions;
 import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
@@ -11,6 +12,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.math.BigDecimal;
 
+import static com.example.demo.service.Categories.LAPTOP;
+
 
 @DataJpaTest
 class MacbookRepositoryTests {
@@ -21,6 +24,7 @@ class MacbookRepositoryTests {
 	@Test
 	void shouldSaveMacbook() {
 		var product = Product.builder()
+				.category(new Category(String.valueOf(LAPTOP)))
 				.product_name("Macbook Pro M3")
 				.product_price(new BigDecimal("12000"))
 				.build();

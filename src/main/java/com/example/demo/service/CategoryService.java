@@ -27,13 +27,7 @@ public class CategoryService {
         categoryRepository.save(newCategory);
     }
 
-    public void editCategory(Long id, String categoryName){
 
-        categoryRepository.editCategory(id, categoryName);
-
-
-
-    }
 
 
 
