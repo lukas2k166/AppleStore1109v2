@@ -5,7 +5,6 @@ import com.example.demo.entities.Macbook;
 import com.example.demo.entities.MacbookSpecification;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.ProductRepository;

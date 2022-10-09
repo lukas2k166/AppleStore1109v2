@@ -30,7 +30,7 @@ public class OrderService {
     public void addOrder(){
 
         var product = Product.builder()
-//                .category(new Category(String.valueOf(LAPTOP)))
+                .category(new Category(String.valueOf(LAPTOP)))
                 .product_name("Macbook Pro M1")
                 .product_price(new BigDecimal("15000"))
                 .build();

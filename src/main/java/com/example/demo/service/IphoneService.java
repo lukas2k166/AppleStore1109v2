@@ -4,7 +4,6 @@ import com.example.demo.entities.Category;
 import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.IphoneRepository;
 import com.example.demo.repository.ProductRepository;
@@ -12,11 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.List;
 
 import static com.example.demo.service.Categories.LAPTOP;
-import static com.example.demo.service.Categories.PHONE;
 
 @Service
 public class IphoneService {
@@ -41,7 +38,6 @@ public class IphoneService {
         var product = Product.builder()
                 .product_name("Iphone 13")
                 .category(new Category(String.valueOf(LAPTOP)))
-//                .category(new Category(String.valueOf(PHONE)))
                 .product_price(new BigDecimal("4000"))
                 .build();
 
