@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 import static com.example.demo.service.Categories.LAPTOP;
@@ -46,7 +45,7 @@ public class MacbookService {
 
         var product = Product.builder()
                 .category(new Category(String.valueOf(LAPTOP)))
-                .product_name("Macbook Pro M22")
+                .product_name("Macbook Pro M2")
                 .product_price(new BigDecimal("12000"))
                 .build();
 

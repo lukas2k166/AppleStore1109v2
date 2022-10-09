@@ -14,10 +14,20 @@ import java.math.BigDecimal;
 @ToString(exclude = "product")
 public class Iphone {
 
+
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "iphone_sequence",
+            sequenceName = "iphone_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "iphone_sequence"
+    )
     @Column(name = "\"Iphone ID\"")
     private Long iphone_id;
+
 
     @Column(name = "\"Nazwa\"")
     private String iphone_name;

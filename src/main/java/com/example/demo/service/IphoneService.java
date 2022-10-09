@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static com.example.demo.service.Categories.LAPTOP;
+import static com.example.demo.service.Categories.PHONE;
 
 @Service
 public class IphoneService {
@@ -36,8 +36,8 @@ public class IphoneService {
     public void addNewIphone() {
 
         var product = Product.builder()
-                .product_name("Iphone 13")
-                .category(new Category(String.valueOf(LAPTOP)))
+                .product_name("Iphone 14")
+                .category(new Category(String.valueOf(PHONE)))
                 .product_price(new BigDecimal("4000"))
                 .build();
 

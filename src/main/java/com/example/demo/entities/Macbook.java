@@ -1,4 +1,5 @@
 package com.example.demo.entities;
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,7 +15,15 @@ import java.math.BigDecimal;
 public class Macbook {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "macbook_sequence",
+            sequenceName = "macbook_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "macbook_sequence"
+    )
     @Column(name = "\"Macbook ID\"")
     private Long macbook_id;
 
