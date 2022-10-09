@@ -1,4 +1,4 @@
-package com.example.demo.controller.template_controllers.administration.users_administration;
+package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;

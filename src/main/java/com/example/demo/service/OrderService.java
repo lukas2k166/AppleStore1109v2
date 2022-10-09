@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
+import static com.example.demo.service.Categories.LAPTOP;
+
 @Service
 public class OrderService {
 
@@ -28,6 +30,7 @@ public class OrderService {
     public void addOrder(){
 
         var product = Product.builder()
+//                .category(new Category(String.valueOf(LAPTOP)))
                 .product_name("Macbook Pro M1")
                 .product_price(new BigDecimal("15000"))
                 .build();

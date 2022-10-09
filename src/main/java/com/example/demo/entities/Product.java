@@ -5,6 +5,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Builder
 @AllArgsConstructor
@@ -38,7 +41,7 @@ public class Product {
     )
     @JoinColumn(
             name = "\"Kategoria\"",
-            referencedColumnName = "category_name"
+            referencedColumnName = "id"
     )
     private Category category;
 

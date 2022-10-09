@@ -31,7 +31,6 @@ public class ProductService {
     }
 
     public List<Product> findProductByName(String product_name){
-
         if (productRepository.findByProductName(product_name).isEmpty())
             throw new ResourceNotFoundException(product_name + " cannot be found");
 
