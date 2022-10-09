@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entities.*;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.ProductRepository;
@@ -27,30 +28,21 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public void addOrder(){
+    public void addOrder(String product_name){
 
         var product = Product.builder()
                 .category(new Category(String.valueOf(LAPTOP)))
-                .product_name("Macbook Pro M1")
+                .product_name(product_name)
                 .product_price(new BigDecimal("15000"))
                 .build();
 
-        var macbookSpecification = new MacbookSpecification();
-        macbookSpecification.setMacbook_ram(32);
-        macbookSpecification.setMacbook_processor("M1 Pro");
-
-        var newMacbook = Macbook.builder()
-                .product(product)
-                .macbookSpecification(macbookSpecification)
-                .macbook_price(product.getProduct_price())
-                .macbook_name(product.getProduct_name())
-                .product(product)
-                .build();
-
-        macbookRepository.save(newMacbook);
+        if (productRepository.findByProductName(product_name).
+                stream().findAny().isEmpty()){
+            throw new ResourceNotFoundException(product.getProduct_name() + " does not exist");
+        }
 
         Cart cart = Cart.builder()
-                .product(product)
+                .product(productRepository.findByProductName(product_name).stream().findFirst().get())
                 .build();
 
         Order order = Order.builder()
