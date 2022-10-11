@@ -2,10 +2,14 @@ package com.example.demo.service;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
+import com.example.demo.exception.AlreadyExistsException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 public class CategoryService {
@@ -22,19 +26,33 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public void addNewCategory(String categoryName){
+    public void addNewCategory(String categoryName) {
         Category newCategory = new Category();
         newCategory.setCategory_name(categoryName);
         categoryRepository.save(newCategory);
     }
 
-    public void addCategoryToProduct(String product_name , String categoryName) {
+    public void addCategoryToProduct(String product_name, String categoryName) {
 
-      Product product = productRepository.findByProductName(product_name).stream().findFirst().get();
-      product.setCategory(new Category(categoryName));
-      productRepository.save(product);
-        }
+        Product product = productRepository.findByProductName(product_name).stream().findFirst().get();
+
+        try {
+            Long existingCategoryID = categoryRepository.findCategoryByName(categoryName).stream().
+                    findFirst().get().getId();
+
+            if (categoryRepository.findCategoryByName(categoryName).stream().findAny().isPresent())
+                product.setCategory(categoryRepository.findById(existingCategoryID).get());
+
+
+            } catch (NoSuchElementException e){
+                product.setCategory(new Category(categoryName));
+            }
+
+        productRepository.save(product);
+
+
     }
+}
 
 
 

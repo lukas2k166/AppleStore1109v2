@@ -1,7 +1,5 @@
 package com.example.demo.controller.rest_controllers;
 
-import com.example.demo.entities.Category;
-import com.example.demo.entities.Product;
 import com.example.demo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
