@@ -2,8 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
-import com.example.demo.exception.AlreadyExistsException;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
