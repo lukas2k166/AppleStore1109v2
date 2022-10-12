@@ -10,6 +10,7 @@ import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -69,16 +70,18 @@ public class MacbookService {
         macbookRepository.save(newMacbook);
     }
 
-    public void updateMacbook(){
-        System.out.println("put macbook ID that you want to modify");
-        var putId = new Scanner(System.in);
-        Long puttedId = putId.nextLong();
-
+    public void updateMacbook(
+            Long macbook_id,
+            String macbook_name,
+            BigDecimal macbook_price,
+            String macbook_processor,
+            Integer macbook_ram
+    ){
         macbookRepository.updateMacbook(
-                puttedId,
-                "Macbook Name Modified",
-                new BigDecimal("1000000"),
-                new MacbookSpecification("M1 Max",64)
+                macbook_id,
+                macbook_name,
+                macbook_price,
+                new MacbookSpecification(macbook_processor,macbook_ram)
         );
     }
 
