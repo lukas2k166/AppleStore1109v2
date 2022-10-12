@@ -40,6 +40,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/macbooks/add/new/macbook").hasAuthority(ADMIN.name())
 
                 .antMatchers("macbooks/find/**").permitAll()
+
+                .antMatchers("/category/**").hasAuthority(ADMIN.name())
+                .antMatchers("/macbooks/delete").hasAuthority(ADMIN.name())
+
+
+
                 .anyRequest()
                 .authenticated()
                 .and()

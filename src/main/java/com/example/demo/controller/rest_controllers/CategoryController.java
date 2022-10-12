@@ -2,6 +2,7 @@ package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +19,7 @@ public class CategoryController {
 
     @RequestMapping (value = "add/category/toProduct/{product_name}/{categoryName}",
             method={RequestMethod.POST, RequestMethod.GET})
-    public void updateStudent(@PathVariable("product_name") String product_name,
+    public void addCategoryToProduct(@PathVariable("product_name") String product_name,
                               @PathVariable("categoryName") String categoryName){
 
         categoryService.addCategoryToProduct(product_name,categoryName);
