@@ -4,13 +4,17 @@ import com.google.common.collect.Sets;
 
 import java.util.Set;
 
-import static com.example.demo.authorization.ApplicationUserPermission.ADD_PRODUCT;
-import static com.example.demo.authorization.ApplicationUserPermission.SEE_PRODUCT;
+import static com.example.demo.authorization.ApplicationUserPermission.*;
 
 public enum AppUserRole {
 
-    CLIENT(Sets.newHashSet(SEE_PRODUCT)),
-    ADMIN(Sets.newHashSet(SEE_PRODUCT,ADD_PRODUCT));
+    CLIENT(Sets.newHashSet(SEE_PRODUCT,FIND_PRODUCT,ADD_ORDER,DELETE_ORDER)),
+    ADMIN(Sets.newHashSet(
+            SEE_PRODUCT, FIND_PRODUCT,
+            ADD_PRODUCT, UPDATE_PRODUCT,
+            DELETE_PRODUCT, ADD_CATEGORY,
+            ADD_ORDER, DELETE_ORDER
+            ));
 
     private final Set<ApplicationUserPermission> permissions;
 

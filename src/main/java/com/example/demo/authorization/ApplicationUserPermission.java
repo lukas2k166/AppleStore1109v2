@@ -3,7 +3,13 @@ package com.example.demo.authorization;
 public enum ApplicationUserPermission {
 
     SEE_PRODUCT("see:product"),
-    ADD_PRODUCT("add:product");
+    FIND_PRODUCT("find:product"),
+    ADD_PRODUCT("add:product"),
+    UPDATE_PRODUCT("update:product"),
+    DELETE_PRODUCT("delete:product"),
+    ADD_CATEGORY("add:category"),
+
+    ADD_ORDER("add:order"), DELETE_ORDER("delete:order");
 
     private final String permission;
 
