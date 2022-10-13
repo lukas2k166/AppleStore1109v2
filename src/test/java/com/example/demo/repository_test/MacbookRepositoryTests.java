@@ -11,8 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static com.example.demo.service.Categories.LAPTOP;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DataJpaTest
@@ -43,6 +45,14 @@ class MacbookRepositoryTests {
 		underTest.save(newMacbook);
 
 		Assertions.assertThat(newMacbook.getMacbook_id()).isGreaterThan(0);
+	}
+
+
+	@Test
+	void shouldReturnAllMacbooks() {
+		shouldSaveMacbook();
+		List<Macbook> macbooks = (List<Macbook>) underTest.findAll();
+		assertEquals(1, macbooks.size());
 	}
 
 
