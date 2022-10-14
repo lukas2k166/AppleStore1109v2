@@ -14,9 +14,11 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @GetMapping("add/order/{product_name}")
-    public void addOrder(@PathVariable(value = "product_name") String product_name){
-        orderService.addOrder(product_name);
+    @GetMapping("add/order/{product_name}/{product_name2}")
+    public void addOrder(
+            @PathVariable(value = "product_name") String product_name,
+            @PathVariable(value = "product_name2") String product_name2){
+        orderService.addOrder(product_name,product_name2);
     }
 
     @GetMapping("/deleteOrder/{order_id}")

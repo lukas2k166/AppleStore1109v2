@@ -8,10 +8,7 @@ import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.*;
-
-import static com.example.demo.service.Categories.LAPTOP;
 
 @Service
 public class OrderService {
@@ -29,38 +26,32 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public void addOrder(String product_name){
+    public void addOrder(String product_name, String product_name2){
 
-        var product = Product.builder()
-                .category(new Category(String.valueOf(LAPTOP)))
-                .product_name(product_name)
-                .product_price(new BigDecimal("15000"))
-                .build();
+        try {
+            Collection<Product> products = new ArrayList<Product>();
+            products.add(productRepository.findByProductName(product_name).stream().findFirst().get());
+            products.add(productRepository.findByProductName(product_name2).stream().findFirst().get());
 
-        if (productRepository.findByProductName(product_name).
-                stream().findAny().isEmpty()){
-            throw new ResourceNotFoundException(product.getProduct_name() + " does not exist");
+            Cart cart = Cart.builder()
+                    .products(products)
+                    .build();
+
+            Order order = Order.builder()
+                    .cart(cart)
+                    .build();
+
+            orderRepository.save(order);
+        }catch (NoSuchElementException e){
+            throw new ResourceNotFoundException(product_name +" or "+ product_name2 +" not found");
         }
 
-        Collection<Product> products = new ArrayList<Product>();
-        products.add(productRepository.findByProductName(product_name).stream().findFirst().get());
-        products.add(productRepository.findByProductName("Macbook Pro M2").stream().findFirst().get());
-
-
-        Cart cart = Cart.builder()
-                .products(products)
-                .build();
-
-        Order order = Order.builder()
-                .cart(cart)
-                .build();
-
-        orderRepository.save(order);
     }
 
     public void deleteById(long order_id) {
         this.orderRepository.deleteById(order_id);
     }
+
 
 
 

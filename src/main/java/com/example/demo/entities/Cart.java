@@ -14,7 +14,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Entity
 @Data
-@Table(name = "cart_item")
+@Table(name = "cart")
 public class Cart {
 
 
@@ -29,7 +29,7 @@ public class Cart {
             generator = "cart_sequence"
     )
     @Column(name = "cart_id")
-    private Long cart_item_id;
+    private Long cart_id;
 
     @Embedded
     @ElementCollection
