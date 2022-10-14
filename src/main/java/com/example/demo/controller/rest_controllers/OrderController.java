@@ -18,12 +18,21 @@ public class OrderController {
     public void addOrder(
             @PathVariable(value = "product_name") String product_name,
             @PathVariable(value = "product_name2") String product_name2){
+
         orderService.addOrder(product_name,product_name2);
     }
 
     @GetMapping("/deleteOrder/{order_id}")
     public void deleteOrder(@PathVariable(value = "order_id") long order_id) {
         this.orderService.deleteById(1L);
+    }
+
+    @GetMapping("addProductToExistingOrder/{order_id}/{product_name}")
+    public void addProductToExistingOrder(
+            @PathVariable(value = "order_id") long order_id,
+            @PathVariable(value = "product_name") String product_name){
+
+        orderService.addProductToExistingOrder(order_id,product_name);
     }
 
 }
