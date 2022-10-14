@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.*;
 
 import static com.example.demo.service.Categories.LAPTOP;
 
@@ -41,8 +42,13 @@ public class OrderService {
             throw new ResourceNotFoundException(product.getProduct_name() + " does not exist");
         }
 
+        Collection<Product> products = new ArrayList<Product>();
+        products.add(productRepository.findByProductName(product_name).stream().findFirst().get());
+        products.add(productRepository.findByProductName("Macbook Pro M2").stream().findFirst().get());
+
+
         Cart cart = Cart.builder()
-                .product(productRepository.findByProductName(product_name).stream().findFirst().get())
+                .products(products)
                 .build();
 
         Order order = Order.builder()
@@ -55,8 +61,6 @@ public class OrderService {
     public void deleteById(long order_id) {
         this.orderRepository.deleteById(order_id);
     }
-
-
 
 
 

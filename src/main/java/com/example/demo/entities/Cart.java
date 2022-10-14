@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Builder
 @AllArgsConstructor
@@ -29,15 +31,8 @@ public class Cart {
     @Column(name = "cart_id")
     private Long cart_item_id;
 
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            optional = false
-    )
-    @JoinColumn(
-            name = "\"Product ID\"",
-            referencedColumnName = "\"Product ID\""
-    )
-    private Product product;
+    @Embedded
+    @ElementCollection
+    private Collection<Product> products = new ArrayList<Product>();
 
 }
