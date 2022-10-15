@@ -6,12 +6,11 @@ import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.ProductRepository;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -102,13 +101,30 @@ public class OrderService {
 
         existingOrder.setCart(selectedCart);
         orderRepository.save(existingOrder);
-
-
-
     }
 
+    public void removeAllProductsFromOrder(long order_id) {
+
+        if (cartRepository.findById(order_id).stream().findFirst().isEmpty())
+            throw new ResourceNotFoundException(order_id + " cannot be found");
+
+        Cart cart = cartRepository.findById(order_id).stream().findFirst().get();
+
+        Collection<Product> newCartContent = new HashSet<>();
+
+
+                cart.setProducts(newCartContent);
+                cart.setCart_id(order_id);
+
+                Order order = orderRepository.findById(order_id).get();
+                order.setCart(cart);
+
+
+                orderRepository.save(order);
+            }
+        }
 
 
 
 
-}
+

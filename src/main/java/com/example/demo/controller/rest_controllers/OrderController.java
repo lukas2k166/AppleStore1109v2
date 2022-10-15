@@ -2,10 +2,7 @@ package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders/")
@@ -42,5 +39,15 @@ public class OrderController {
 
         orderService.removeProductFromOrder(order_id,product_name);
     }
+
+    @GetMapping("remove/all/ProductsFromOrder/{order_id}")
+    public void removeAllProductsFromOrder(
+            @PathVariable(value = "order_id") long order_id){
+
+        orderService.removeAllProductsFromOrder(order_id);
+    }
+
+
+
 
 }
