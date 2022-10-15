@@ -24,15 +24,23 @@ public class OrderController {
 
     @GetMapping("/deleteOrder/{order_id}")
     public void deleteOrder(@PathVariable(value = "order_id") long order_id) {
-        this.orderService.deleteById(1L);
+        this.orderService.deleteOrderById(1L);
     }
 
-    @GetMapping("addProductToExistingOrder/{order_id}/{product_name}")
+    @GetMapping("add/ProductToExistingOrder/{order_id}/{product_name}")
     public void addProductToExistingOrder(
             @PathVariable(value = "order_id") long order_id,
             @PathVariable(value = "product_name") String product_name){
 
         orderService.addProductToExistingOrder(order_id,product_name);
+    }
+
+    @GetMapping("remove/ProductFromExistingOrder/{order_id}/{product_name}")
+    public void removeProductFromExistingOrder(
+            @PathVariable(value = "order_id") long order_id,
+            @PathVariable(value = "product_name") String product_name){
+
+        orderService.removeProductFromOrder(order_id,product_name);
     }
 
 }

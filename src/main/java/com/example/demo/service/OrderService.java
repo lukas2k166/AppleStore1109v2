@@ -53,7 +53,7 @@ public class OrderService {
         }
     }
 
-    public void deleteById(long order_id) {
+    public void deleteOrderById(long order_id) {
         this.orderRepository.deleteById(order_id);
     }
 
@@ -80,6 +80,33 @@ public class OrderService {
         existingOrder.setCart(selectedCart);
         orderRepository.save(existingOrder);
     }
+
+    public void removeProductFromOrder(long order_id, String product_name){
+
+        if (!orderRepository.existsById(order_id))
+            throw new ResourceNotFoundException("Order with " + order_id + " ID cannot be found");
+
+        Order existingOrder = orderRepository.findById(order_id).get();
+        Collection<Product> products = new ArrayList<Product>(existingOrder.getCart().getProducts());
+
+        if (productRepository.findByProductName(product_name).stream().findAny().isEmpty())
+            throw new ResourceNotFoundException("Product: " + product_name + " cannot be found");
+
+        Product existingProduct = productRepository.findByProductName(product_name).stream().findFirst().get();
+
+        products.remove(existingProduct);
+
+        Cart selectedCart = cartRepository.findById(order_id).get();
+        selectedCart.setCart_id(order_id);
+        selectedCart.setProducts(products);
+
+        existingOrder.setCart(selectedCart);
+        orderRepository.save(existingOrder);
+
+
+
+    }
+
 
 
 
