@@ -36,7 +36,7 @@ public class IphoneService {
     public void addNewIphone() {
 
         var product = Product.builder()
-                .product_name("Iphone 13 Pro")
+                .product_name("Iphone 14 Pro")
                 .category(new Category(String.valueOf(PHONE)))
                 .product_price(new BigDecimal("4000"))
                 .build();

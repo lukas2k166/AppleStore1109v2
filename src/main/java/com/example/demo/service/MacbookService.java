@@ -46,7 +46,7 @@ public class MacbookService {
 
         var product = Product.builder()
                 .category(new Category(String.valueOf(LAPTOP)))
-                .product_name("Macbook Pro M3")
+                .product_name("Macbook Pro M2")
                 .product_price(new BigDecimal("12000"))
                 .build();
 

@@ -6,9 +6,11 @@ import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.ProductRepository;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.*;
 
 @Service
@@ -57,26 +59,26 @@ public class OrderService {
 
     public void addProductToExistingOrder(long order_id, String product_name) {
 
-            Order order = orderRepository.findById(order_id).get();
+        if (!orderRepository.existsById(order_id))
+            throw new ResourceNotFoundException("Order with " + order_id + " ID cannot be found");
 
-        Collection<Product> products = new ArrayList<Product>(cartRepository.findById(order_id).get().getProducts());
+        Order order = orderRepository.findById(order_id).get();
+        Collection<Product> products = new ArrayList<Product>(orderRepository.findById(order_id).get()
+                .getCart().getProducts());
+
+
+        if (productRepository.findByProductName(product_name).stream().findAny().isEmpty())
+            throw new ResourceNotFoundException("Product: " + product_name + " cannot be found");
+
         products.add(productRepository.findByProductName(product_name).stream().findFirst().get());
 
 
-            if (productRepository.findByProductName(product_name).stream().findFirst().isEmpty())
-                throw new ResourceNotFoundException("Product: " + product_name + " cannot be found");
+        Cart cart = cartRepository.findById(order_id).get();
+        cart.setCart_id(order_id);
+        cart.setProducts(products);
 
-            if (orderRepository.findById(order_id).isEmpty()){
-                throw new ResourceNotFoundException("Order with " + order_id + " ID cannot be found");
-            }
-
-            Cart cart = cartRepository.findById(order_id).get();
-            cart.setCart_id(order_id);
-            cart.setProducts(products);
-
-
-            order.setCart(cart);
-            orderRepository.save(order);
+        order.setCart(cart);
+        orderRepository.save(order);
     }
 
 
