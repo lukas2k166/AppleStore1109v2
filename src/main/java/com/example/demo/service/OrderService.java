@@ -63,14 +63,14 @@ public class OrderService {
             throw new ResourceNotFoundException("Order with " + order_id + " ID cannot be found");
 
         Order order = orderRepository.findById(order_id).get();
-        Collection<Product> products = new ArrayList<Product>(orderRepository.findById(order_id).get()
-                .getCart().getProducts());
-
+        Collection<Product> products = new ArrayList<Product>(order.getCart().getProducts());
 
         if (productRepository.findByProductName(product_name).stream().findAny().isEmpty())
             throw new ResourceNotFoundException("Product: " + product_name + " cannot be found");
 
-        products.add(productRepository.findByProductName(product_name).stream().findFirst().get());
+        Product product = productRepository.findByProductName(product_name).stream().findFirst().get();
+
+        products.add(product);
 
 
         Cart cart = cartRepository.findById(order_id).get();
