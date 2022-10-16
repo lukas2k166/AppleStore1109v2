@@ -23,7 +23,8 @@ developed for practice my knowledge of Spring framework
 - MySQL
 
 **Features:**
-       GENERAL:
+
+**GENERAL:**
 * Login Page
 * Ability to login and logout
 * Remember me function
@@ -33,7 +34,7 @@ developed for practice my knowledge of Spring framework
 * Register new user
 * Delete user
 
-* PRODUCT:
+**PRODUCT:**
 * Page to see product properties
 * Find specific product
 * Add new product
@@ -42,7 +43,7 @@ developed for practice my knowledge of Spring framework
 * Add category
 * Edit category
 
-* ORDER:
+**ORDER:**
 * Add/delete order
 * Add/remove product from existing order
 
@@ -52,5 +53,7 @@ developed for practice my knowledge of Spring framework
 <img width="1199" alt="Zrzut ekranu 2022-10-16 o 23 10 54" src="https://user-images.githubusercontent.com/105550554/196059136-a1eb4302-6f5c-4700-895b-77f302268d78.png">
 
 <img width="1243" alt="Administration" src="https://user-images.githubusercontent.com/105550554/196059143-f55665cc-e51c-4f53-a917-c14500c5ced1.png">
-![Pasted Graphic](https://user-images.githubusercontent.com/105550554/196059158-4b53d96c-459c-4a8c-96ff-8ef23a94de92.png)![SEE PRODUCT](https://user-images.githubusercontent.com/105550554/196059162-7a673204-1ce8-4b45-b871-15580ee6995d.png)
+
+![Pasted Graphic](https://user-images.githubusercontent.com/105550554/196059307-297858d9-3703-46be-90b0-de22d103ce1b.png)
+![SEE PRODUCT](https://user-images.githubusercontent.com/105550554/196059312-b00a8b2c-7327-4490-b1f9-f3dc29264761.png)
 
