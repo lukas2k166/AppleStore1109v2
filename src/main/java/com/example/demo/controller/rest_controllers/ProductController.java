@@ -1,7 +1,6 @@
 package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.entities.Product;
-import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.service_implementations.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +16,6 @@ public class ProductController {
 
     @Autowired
     private ProductServiceImpl productService;
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @GetMapping("/get/all/products")
     public List<Product> getAllProducts(){

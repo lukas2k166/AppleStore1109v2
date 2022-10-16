@@ -4,7 +4,6 @@ import com.example.demo.entities.Category;
 import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.exception.AlreadyExistsException;
-import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.IphoneRepository;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.service_interfaces.IphoneService;
@@ -23,11 +22,6 @@ public class IphoneServiceImpl implements IphoneService {
     private IphoneRepository iphoneRepository;
     @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
-    private ProductServiceImpl productService;
-    @Autowired
-    private CategoryRepository categoryRepository;
 
     public List<Iphone> getAllIphones(){
 

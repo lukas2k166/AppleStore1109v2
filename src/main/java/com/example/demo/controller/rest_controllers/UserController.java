@@ -1,6 +1,5 @@
 package com.example.demo.controller.rest_controllers;
 
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.service_implementations.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +9,6 @@ import java.security.Principal;
 @RestController
 @RequestMapping("/homepage/administration/users_administration/")
 public class UserController {
-
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserServiceImpl userService;
