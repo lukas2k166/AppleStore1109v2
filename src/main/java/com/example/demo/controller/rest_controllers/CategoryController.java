@@ -18,7 +18,7 @@ public class CategoryController {
 
     @RequestMapping (value = "add/category/toProduct/{product_name}/{categoryName}",
             method={RequestMethod.POST, RequestMethod.GET})
-    public void updateStudent(@PathVariable("product_name") String product_name,
+    public void addCategoryToProduct(@PathVariable("product_name") String product_name,
                               @PathVariable("categoryName") String categoryName){
 
         categoryService.addCategoryToProduct(product_name,categoryName);

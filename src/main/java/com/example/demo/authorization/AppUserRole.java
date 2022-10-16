@@ -8,12 +8,13 @@ import static com.example.demo.authorization.ApplicationUserPermission.*;
 
 public enum AppUserRole {
 
-    CLIENT(Sets.newHashSet(SEE_PRODUCT,FIND_PRODUCT,ADD_ORDER,DELETE_ORDER)),
+    CLIENT(Sets.newHashSet(SEE_PRODUCT,FIND_PRODUCT,ADD_ORDER,DELETE_ORDER,EDIT_ORDER)),
     ADMIN(Sets.newHashSet(
             SEE_PRODUCT, FIND_PRODUCT,
             ADD_PRODUCT, UPDATE_PRODUCT,
             DELETE_PRODUCT, ADD_CATEGORY,
-            ADD_ORDER, DELETE_ORDER
+            ADD_ORDER, DELETE_ORDER,
+            EDIT_ORDER
             ));
 
     private final Set<ApplicationUserPermission> permissions;
