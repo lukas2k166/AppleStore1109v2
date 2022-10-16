@@ -1,6 +1,6 @@
 package com.example.demo.controller.rest_controllers;
 
-import com.example.demo.service.OrderService;
+import com.example.demo.service.service_implementations.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
 
     @Autowired
-    OrderService orderService;
+    OrderServiceImpl orderService;
 
     @GetMapping("add/order/{product_name}/{product_name2}")
     public void addOrder(

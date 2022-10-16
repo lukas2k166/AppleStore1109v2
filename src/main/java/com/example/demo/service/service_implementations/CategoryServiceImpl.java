@@ -1,16 +1,17 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.service.service_interfaces.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
 
 @Service
-public class CategoryService {
+public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
@@ -18,9 +19,9 @@ public class CategoryService {
     private ProductRepository productRepository;
 
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
-    public CategoryService(CategoryRepository categoryRepository) {
+    public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 

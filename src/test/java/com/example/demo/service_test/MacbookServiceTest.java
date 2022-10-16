@@ -1,7 +1,7 @@
 package com.example.demo.service_test;
 
 import com.example.demo.repository.MacbookRepository;
-import com.example.demo.service.MacbookService;
+import com.example.demo.service.service_implementations.MacbookServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,13 +15,13 @@ class MacbookServiceTest {
 	@Mock
 	private MacbookRepository macbookRepository;
 	private AutoCloseable autoCloseable;
-	private MacbookService underTest;
+	private MacbookServiceImpl underTest;
 
 
 	@BeforeEach
 	void setUp(){
 		autoCloseable = MockitoAnnotations.openMocks(this);
-		underTest = new MacbookService(macbookRepository);
+		underTest = new MacbookServiceImpl(macbookRepository);
 	}
 	@AfterEach
 	void tearDown() throws Exception {

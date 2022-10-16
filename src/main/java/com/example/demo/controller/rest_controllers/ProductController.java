@@ -1,9 +1,8 @@
 package com.example.demo.controller.rest_controllers;
 
-import com.example.demo.entities.Iphone;
 import com.example.demo.entities.Product;
 import com.example.demo.repository.ProductRepository;
-import com.example.demo.service.ProductService;
+import com.example.demo.service.service_implementations.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +16,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     @Autowired
     private ProductRepository productRepository;

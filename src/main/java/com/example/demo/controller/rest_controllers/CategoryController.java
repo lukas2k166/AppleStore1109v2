@@ -1,6 +1,6 @@
 package com.example.demo.controller.rest_controllers;
 
-import com.example.demo.service.CategoryService;
+import com.example.demo.service.service_implementations.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImpl categoryService;
 
     @GetMapping("add/category/{categoryName}")
     public void addNewCategory(@PathVariable(value = "categoryName") String categoryName){

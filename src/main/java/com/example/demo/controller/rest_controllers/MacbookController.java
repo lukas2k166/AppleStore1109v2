@@ -1,26 +1,19 @@
 package com.example.demo.controller.rest_controllers;
 
 import com.example.demo.entities.Macbook;
-import com.example.demo.service.MacbookService;
+import com.example.demo.service.service_implementations.MacbookServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
-
-import static com.example.demo.authorization.AppUserRole.ADMIN;
 
 @RestController
 @RequestMapping("/macbooks")
 public class MacbookController {
 
     @Autowired
-    MacbookService macbookService;
+    MacbookServiceImpl macbookService;
 
     @GetMapping("/get/all/macbooks")
     public List<Macbook> getAllMacbooks(){

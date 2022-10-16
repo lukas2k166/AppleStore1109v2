@@ -1,10 +1,11 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.dto.UserRegistrationDto;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.service.service_interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

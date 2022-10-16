@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Macbook;
@@ -8,9 +8,9 @@ import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.service.service_interfaces.MacbookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.Scanner;
 import static com.example.demo.service.Categories.LAPTOP;
 
 @Service
-public class MacbookService {
+public class MacbookServiceImpl implements MacbookService {
 
     @Autowired
     private MacbookRepository macbookRepository;
@@ -28,12 +28,12 @@ public class MacbookService {
     private ProductRepository productRepository;
 
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
 
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public MacbookService(MacbookRepository macbookRepository) {
+    public MacbookServiceImpl(MacbookRepository macbookRepository) {
         this.macbookRepository = macbookRepository;
     }
 

@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import com.example.demo.service.UserServiceImpl;
+import com.example.demo.service.service_implementations.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

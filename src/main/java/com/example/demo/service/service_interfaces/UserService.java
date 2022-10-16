@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.service_interfaces;
 
 
 import com.example.demo.dto.UserRegistrationDto;

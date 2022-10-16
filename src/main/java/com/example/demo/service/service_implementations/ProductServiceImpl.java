@@ -1,17 +1,18 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.entities.Product;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.service.service_interfaces.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
-public class ProductService {
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;

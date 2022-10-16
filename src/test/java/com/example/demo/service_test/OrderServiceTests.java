@@ -1,7 +1,7 @@
 package com.example.demo.service_test;
 
 import com.example.demo.repository.OrderRepository;
-import com.example.demo.service.OrderService;
+import com.example.demo.service.service_implementations.OrderServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,13 +14,13 @@ class OrderServiceTests {
 	@Mock
 	private OrderRepository orderRepository;
 	private AutoCloseable autoCloseable;
-	private OrderService underTest;
+	private OrderServiceImpl underTest;
 
 
 	@BeforeEach
 	void setUp(){
 		autoCloseable = MockitoAnnotations.openMocks(this);
-		underTest = new OrderService(orderRepository);
+		underTest = new OrderServiceImpl(orderRepository);
 	}
 	@AfterEach
 	void tearDown() throws Exception {
@@ -30,7 +30,7 @@ class OrderServiceTests {
 	@Test
 	void shouldDeleteOrderById(){
 
-		underTest.deleteById(1L);
+		underTest.deleteOrderById(1L);
 
 		verify(orderRepository).deleteById(1L);
 

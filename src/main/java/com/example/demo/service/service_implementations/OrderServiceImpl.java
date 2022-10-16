@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.entities.*;
 import com.example.demo.exception.ResourceNotFoundException;
@@ -6,14 +6,14 @@ import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.MacbookRepository;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.service.service_interfaces.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
-public class OrderService {
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
@@ -27,7 +27,7 @@ public class OrderService {
     @Autowired
     private CartRepository cartRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 

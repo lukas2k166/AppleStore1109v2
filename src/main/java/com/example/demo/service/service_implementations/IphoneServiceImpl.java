@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.service_implementations;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Iphone;
@@ -7,6 +7,7 @@ import com.example.demo.exception.AlreadyExistsException;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.IphoneRepository;
 import com.example.demo.repository.ProductRepository;
+import com.example.demo.service.service_interfaces.IphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import static com.example.demo.service.Categories.PHONE;
 
 @Service
-public class IphoneService {
+public class IphoneServiceImpl implements IphoneService {
 
     @Autowired
     private IphoneRepository iphoneRepository;
@@ -24,7 +25,7 @@ public class IphoneService {
     private ProductRepository productRepository;
 
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
     @Autowired
     private CategoryRepository categoryRepository;
 
